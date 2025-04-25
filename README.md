@@ -1,3 +1,3 @@
-# fgmAbgabe-repo
+# Repository für Programmieraufgaben - Seminar zu Generativer KI
 
-Repo für die Abgabe im Modul GFM
+Anleitungen zum Ausführen und wichtige Informationen befinden sich in den jeweiligen Aufgaben in ```Bericht.md```
