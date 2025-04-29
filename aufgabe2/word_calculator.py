@@ -74,7 +74,7 @@ def calculate_with_transformer(expression, model, tokenizer, vocab):
         return []
     
     # Limit für vocab size
-    vocab = vocab[:5000]
+    vocab = vocab[:1000]
     similarities = []
     for word in vocab:
         word_vector = get_bert_embedding(word, model, tokenizer)
@@ -88,15 +88,18 @@ if __name__ == "__main__":
     print("---------------")
     
     # Auswahl des Modells
-    model_choice = input("Choose embedding model (glove/transformer): ")
-    if model_choice == "glove":
-        glove_model = load_glove_model("./models_and_vocab/glove.6B.50d.txt")
-    elif model_choice == "transformer":
-        bert_model, bert_tokenizer = load_transformer_model()
-        with open ("./models_and_vocab/google-10000-english.txt") as f:
-            vocab = [line.strip() for line in f if line.strip().isalpha() and len(line.strip()) > 2]
-    else:
-        print("Invalid model choice. Please choose 'glove' or 'transformer'.")
+    model_choice = ""
+    while model_choice not in ["glove", "transformer"]:
+        model_choice = input("Choose embedding model (glove/transformer): ")
+        if model_choice == "glove":
+            glove_model = load_glove_model("./models_and_vocab/glove.6B.50d.txt")
+        elif model_choice == "transformer":
+            bert_model, bert_tokenizer = load_transformer_model()
+            with open ("./models_and_vocab/google-10000-english.txt") as f:
+                vocab = [line.strip() for line in f if line.strip().isalpha() and len(line.strip()) > 2]
+        else:
+            print("Invalid model choice. Please choose 'glove' or 'transformer'.")
+        
     
     while True:
         expression = input("Enter a word expression (E.g. king - man + woman): ")

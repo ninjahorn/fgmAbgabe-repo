@@ -11,6 +11,7 @@ Für die Implementierung in a) wurden das package "tokenizers" von Hugging Face 
 ## Aufgabe 2
 
 In dem models Ordner ist bereits ein 50d glove Modell enthalten. Um zum Beispiel ein größeres Modell, wie 300d, zu nutzen, muss die Modell Datei in den models Ordner verschoben werden und der Pfad in Zeile ... (```glove_model = load_glove_model("./models/glove.6B.50d.txt")```) muss aktualisiert werden.
+Anleitung GloVe herunterladen und einfügen!!!
 
 Mit GloVe Zugriff auf ganzes vokabular, mit trnasformer liefert automodel nur vektoren, aber es gibt keine eingebaute methode, wie model.similar_by_vector um über das gesamte Vokabular die Ähnlichkeit zu berechnen. Deswegen similarity nur bei GloVe.
 
@@ -36,6 +37,8 @@ stuttgart :  0.82121741771698
 berlin :  0.8180941343307495
 frankfurt :  0.8079747557640076
 hamburg :  0.8076310753822327
+
+Bei Transformer dauert das finden der richtigen vocabs auf meinem Gerät ziemlich lange. Auch mit einer Begrenzung der vocabs auf 1000 Wörter in Zeile 77 (```vocab = vocab[:1000]```) dauert es nach der Eingabe einer Expression ca. 40 Sekunden bis ein Ergebnis auftaucht.
 
 ## Aufgabe 3
 
