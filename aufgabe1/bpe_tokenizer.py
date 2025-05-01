@@ -136,6 +136,7 @@ class BPETokenizer:
             result.append(new_word)
         return result
     
+# Funktion fuer Ausgabe der Tokenisierung fuer einen Text und bestimmten Tokenizer
 def tokenize_and_print(text, tokenizer, tokenizer_name="Tokenizer"):
     tokens = tokenizer.tokenize(text)
     print("--------------------------------------------------")
@@ -157,87 +158,45 @@ if __name__ == "__main__":
     # tokenizer_bible_ende.train("./datasets/bible_de-en.txt")
     # tokenizer_bible_ende.save("./trained_tokenizers/bible_de-en_bpe.json")
     
-    # TODO
     # tokenizer_de = BPETokenizer(vocab_size=1000)
     # tokenizer_de.train("./datasets/amt_de.txt")
     # tokenizer_de.save("./trained_tokenizers/amt_de_bpe.json")
     
-    # TODO
     # tokenizer_en = BPETokenizer(vocab_size=1000)
     # tokenizer_en.train("./datasets/amt_en.txt")
     # tokenizer_en.save("./trained_tokenizers/amt_en_bpe.json")
     
-    # tokenizer_bible_de = BPETokenizer.load("./trained_tokenizers/bible_de_bpe.json")
-    # tokenize_and_print("Das ist ein Test", tokenizer_bible_de, "German bible tokenizer")
+    tokenizer_bible_de = BPETokenizer.load("./trained_tokenizers/bible_de_bpe.json")
+    tokenize_and_print("Das ist ein Test", tokenizer_bible_de, "German bible tokenizer")
+    tokenize_and_print("Die Katze sitz auf dem Dach", tokenizer_bible_de, "German bible tokenizer")
+    tokenize_and_print("The cat sits on the roof", tokenizer_bible_de, "German bible tokenizer")
+    tokenize_and_print("Jesus ist am Kreuz gestorben", tokenizer_bible_de, "German bible tokenizer")
+    tokenize_and_print("Jesus died on the cross", tokenizer_bible_de, "German bible tokenizer")
     
-    # tokenizer_bible_en = BPETokenizer.load("./trained_tokenizers/bible_en_bpe.json")
-    # tokenize_and_print("Das ist ein Test", tokenizer_bible_en, "English bible tokenizer")
+    tokenizer_bible_en = BPETokenizer.load("./trained_tokenizers/bible_en_bpe.json")
+    tokenize_and_print("Das ist ein Test", tokenizer_bible_en, "English bible tokenizer")
+    tokenize_and_print("Die Katze sitz auf dem Dach", tokenizer_bible_en, "English bible tokenizer")
+    tokenize_and_print("The cat sits on the roof", tokenizer_bible_en, "English bible tokenizer")
+    tokenize_and_print("Jesus ist am Kreuz gestorben", tokenizer_bible_en, "English bible tokenizer")
+    tokenize_and_print("Jesus died on the cross", tokenizer_bible_en, "English bible tokenizer")
     
-    # tokenizer_bible_ende = BPETokenizer.load("./trained_tokenizers/bible_de-en_bpe.json")
-    # tokenize_and_print("Das ist ein Test", tokenizer_bible_ende, "German-English bible tokenizer")
+    tokenizer_bible_ende = BPETokenizer.load("./trained_tokenizers/bible_de-en_bpe.json")
+    tokenize_and_print("Das ist ein Test", tokenizer_bible_ende, "German-English bible tokenizer")
+    tokenize_and_print("Die Katze sitz auf dem Dach", tokenizer_bible_ende, "German-English bible tokenizer")
+    tokenize_and_print("The cat sits on the roof", tokenizer_bible_ende, "German-English bible tokenizer")
+    tokenize_and_print("Jesus ist am Kreuz gestorben", tokenizer_bible_ende, "German-English bible tokenizer")
+    tokenize_and_print("Jesus died on the cross", tokenizer_bible_ende, "German-English bible tokenizer")
     
     tokenizer_amt_de = BPETokenizer.load("./trained_tokenizers/amt_de_bpe.json")
     tokenize_and_print("Das ist ein Test", tokenizer_amt_de, "German amt tokenizer")
-    
-    tokenizer_amt_en = BPETokenizer.load("./trained_tokenizers/amt_en_bpe.json")
-    tokenize_and_print("Das ist ein Test", tokenizer_amt_en, "English amt tokenizer")
-
-    # tokenizer_bible_de = BPETokenizer.load("./trained_tokenizers/bible_de_bpe.json")
-    # tokenize_and_print("Die Katze sitz auf dem Dach", tokenizer_bible_de, "German bible tokenizer")
-    
-    # tokenizer_bible_en = BPETokenizer.load("./trained_tokenizers/bible_en_bpe.json")
-    # tokenize_and_print("Die Katze sitz auf dem Dach", tokenizer_bible_en, "English bible tokenizer")
-    
-    # tokenizer_bible_ende = BPETokenizer.load("./trained_tokenizers/bible_de-en_bpe.json")
-    # tokenize_and_print("Die Katze sitz auf dem Dach", tokenizer_bible_ende, "German-English bible tokenizer")
-    
-    tokenizer_amt_de = BPETokenizer.load("./trained_tokenizers/amt_de_bpe.json")
     tokenize_and_print("Die Katze sitz auf dem Dach", tokenizer_amt_de, "German amt tokenizer")
-    
-    tokenizer_amt_en = BPETokenizer.load("./trained_tokenizers/amt_en_bpe.json")
-    tokenize_and_print("Die Katze sitz auf dem Dach", tokenizer_amt_en, "English amt tokenizer")
-
-    # tokenizer_bible_de = BPETokenizer.load("./trained_tokenizers/bible_de_bpe.json")
-    # tokenize_and_print("The cat sits on the roof", tokenizer_bible_de, "German bible tokenizer")
-    
-    # tokenizer_bible_en = BPETokenizer.load("./trained_tokenizers/bible_en_bpe.json")
-    # tokenize_and_print("The cat sits on the roof", tokenizer_bible_en, "English bible tokenizer")
-    
-    # tokenizer_bible_ende = BPETokenizer.load("./trained_tokenizers/bible_de-en_bpe.json")
-    # tokenize_and_print("The cat sits on the roof", tokenizer_bible_ende, "German-English bible tokenizer")
-    
-    tokenizer_amt_de = BPETokenizer.load("./trained_tokenizers/amt_de_bpe.json")
     tokenize_and_print("The cat sits on the roof", tokenizer_amt_de, "German amt tokenizer")
-    
-    tokenizer_amt_en = BPETokenizer.load("./trained_tokenizers/amt_en_bpe.json")
-    tokenize_and_print("The cat sits on the roof", tokenizer_amt_en, "English amt tokenizer")
-    
-    # tokenizer_bible_de = BPETokenizer.load("./trained_tokenizers/bible_de_bpe.json")
-    # tokenize_and_print("Jesus ist am Kreuz gestorben", tokenizer_bible_de, "German bible tokenizer")
-    
-    # tokenizer_bible_en = BPETokenizer.load("./trained_tokenizers/bible_en_bpe.json")
-    # tokenize_and_print("Jesus ist am Kreuz gestorben", tokenizer_bible_en, "English bible tokenizer")
-    
-    # tokenizer_bible_ende = BPETokenizer.load("./trained_tokenizers/bible_de-en_bpe.json")
-    # tokenize_and_print("Jesus ist am Kreuz gestorben", tokenizer_bible_ende, "German-English bible tokenizer")
-    
-    tokenizer_amt_de = BPETokenizer.load("./trained_tokenizers/amt_de_bpe.json")
     tokenize_and_print("Jesus ist am Kreuz gestorben", tokenizer_amt_de, "German amt tokenizer")
-    
-    tokenizer_amt_en = BPETokenizer.load("./trained_tokenizers/amt_en_bpe.json")
-    tokenize_and_print("Jesus ist am Kreuz gestorben", tokenizer_amt_en, "English amt tokenizer")
-    
-    # tokenizer_bible_de = BPETokenizer.load("./trained_tokenizers/bible_de_bpe.json")
-    # tokenize_and_print("Jesus died on the cross", tokenizer_bible_de, "German bible tokenizer")
-    
-    # tokenizer_bible_en = BPETokenizer.load("./trained_tokenizers/bible_en_bpe.json")
-    # tokenize_and_print("Jesus died on the cross", tokenizer_bible_en, "English bible tokenizer")
-    
-    # tokenizer_bible_ende = BPETokenizer.load("./trained_tokenizers/bible_de-en_bpe.json")
-    # tokenize_and_print("Jesus died on the cross", tokenizer_bible_ende, "German-English bible tokenizer")
-    
-    tokenizer_amt_de = BPETokenizer.load("./trained_tokenizers/amt_de_bpe.json")
     tokenize_and_print("Jesus died on the cross", tokenizer_amt_de, "German amt tokenizer")
     
     tokenizer_amt_en = BPETokenizer.load("./trained_tokenizers/amt_en_bpe.json")
+    tokenize_and_print("Das ist ein Test", tokenizer_amt_en, "English amt tokenizer")
+    tokenize_and_print("Die Katze sitz auf dem Dach", tokenizer_amt_en, "English amt tokenizer")
+    tokenize_and_print("The cat sits on the roof", tokenizer_amt_en, "English amt tokenizer")
+    tokenize_and_print("Jesus ist am Kreuz gestorben", tokenizer_amt_en, "English amt tokenizer")
     tokenize_and_print("Jesus died on the cross", tokenizer_amt_en, "English amt tokenizer")
