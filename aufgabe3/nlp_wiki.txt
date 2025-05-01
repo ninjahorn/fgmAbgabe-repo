@@ -1,0 +1,136 @@
+Die Computerlinguistik (CL) oder linguistische Datenverarbeitung (LDV) untersucht, wie natürliche Sprache in Form von Text- oder Sprachdaten mit Hilfe des Computers algorithmisch verarbeitet werden kann. „Sie erarbeitet die theoretischen Grundlagen der Darstellung, Erkennung und Erzeugung gesprochener und geschriebener Sprache durch Maschinen“ und ist Schnittstelle zwischen Sprachwissenschaft und Informatik. In der englischsprachigen Literatur und Informatik ist neben dem Begriff natural language processing (NLP) auch computational linguistics (CL) gebräuchlich.
+
+
+== Geschichte ==
+Computerlinguistik lässt sich als Begriff in die 1960er Jahre zurückverfolgen. Mit den Anfängen der künstlichen Intelligenz auch bei Alan Turing war die Aufgabenstellung schon nahegelegt. Noam Chomskys Syntactic Structures von 1957 präsentierte eine Sprachauffassung, nach der die Sprache in einem formalen Rahmen beschreibbar wurde (Chomsky-Hierarchie der formalen Sprachen). Hinzu kamen die Sprachlogiken von Saul Kripke und Richard Montague. Die teilweise aus dem US-Verteidigungsbudget sehr hoch geförderten Forschungen brachten jedoch nicht die erhofften Durchbrüche. Besonders Chomsky und Joseph Weizenbaum dämpften die Erwartungen an Automatisierungen von Sprachübersetzung. Der Wende von behavioristischen Wissenschaftskonzeptionen zu mentalistischen (Chomsky) folgten umfassende Konzipierungen in den Kognitionswissenschaften.
+In den siebziger Jahren erschienen zunehmend häufiger Publikationen mit dem Begriff Computerlinguistik im Titel. In Deutschland wurde parallel der Begriff Linguistische Datenverarbeitung (LDV) verwendet. Es gab bereits finanziell aufwändige Versuche der Anwendungen (Konkordanzen, Wort- und Formstatistik), aber auch schon größere Projekte zur maschinellen Sprachanalyse und zu Übersetzungen. Die ersten Computerlinguistik-Studiengänge in Deutschland wurden in den 1980er Jahren an der Universität des Saarlandes und in Stuttgart eingerichtet. Die Computerlinguistik bekam mit der Verbreitung von Arbeitsplatzrechnern (Personal Computer) und mit dem Aufkommen des Internets neue Anwendungsgebiete. Im Gegensatz zu einer Internetlinguistik, die insbesondere menschliches Sprachverhalten und die Sprachformen im und mittels Internet untersucht, entstand in der Computerlinguistik eine stärker informatisch-praktische Ausrichtung. Dennoch gab das Fach die klassischen philosophisch-linguistischen Fragen nicht ganz auf und wird heute in theoretische und praktische Computerlinguistik unterschieden.
+
+
+== Funktionsweise ==
+Die Computerlinguistik (CL) verwendet verschiedene Techniken, um gesprochene und geschriebene Sprache zu verarbeiten. Dazu zählen Interpretationen statistischer Daten, Datenmaterial aus sozialen Netzwerken, Suchergebnisse sowie Methoden des maschinellen Lernens und von Regeln durchsetzte algorithmische Datenverarbeitung. Methoden verschiedener Disziplinen wie Informatik, Künstliche Intelligenz, Linguistik und Datenwissenschaft werden genutzt, um Computern die Verarbeitung natürlicher Sprache zu ermöglichen. Computerlinguistik gliedert sich in die Unterbereiche „Verständnis natürlicher Sprache“ (natural language understanding, NLU) und „Erzeugung natürlicher Sprache“ (natural language generation, NLG).
+Künstliche Intelligenz wird auch in Übersetzungsprogrammen wie zum Beispiel DeepL verwendet, wodurch Sprachbarrieren reduziert werden können.
+Computerlinguistik nimmt Teil am digitalen Wandel in Behörden, Unternehmen und Gesellschaft, da Teile von Arbeitsprozessen durch Algorithmen ausgeführt werden. So nutzt zum Beispiel das Software-Unternehmen Nvidia CL. Allerdings gibt es auch Gefahren durch inhaltliche Verzerrungen, die in den verarbeiteten sprachlichen Daten enthalten sind und durch Algorithmen verstärkt werden.
+
+
+== Das Saarbrücker Pipelinemodell ==
+Computer verarbeiten Sprache entweder in der Form von akustischer Information oder in der Form von Buchstabenketten (wenn die Sprache in Schriftform vorliegt). Um die Sprache zu analysieren, arbeitet man sich schrittweise von dieser Eingangsrepräsentation in Richtung Bedeutung vor und durchläuft dabei verschiedene sprachliche Repräsentationsebenen. In praktischen Systemen werden diese Schritte typischerweise sequentiell durchgeführt, daher spricht man vom Pipelinemodell, mit folgenden Schritten:
+
+Spracherkennung
+Falls der Text als Schallinformation vorliegt, muss er erst in Textform umgewandelt werden.
+Tokenisierung
+Die Buchstabenkette wird in Wörter, Sätze etc. segmentiert.
+Morphologische Analyse
+Personalformen oder Fallmarkierungen werden analysiert, um die grammatische Information zu extrahieren und die Wörter im Text auf Grundformen (Lemmata) zurückzuführen, wie sie z. B. im Lexikon stehen.
+Syntaktische Analyse
+Die Wörter jedes Satzes werden auf ihre strukturelle Funktion im Satz hin analysiert (z. B. Subjekt, Objekt, Modifikator, Artikel etc.).
+Semantische Analyse
+Den Sätzen bzw. ihren Teilen wird Bedeutung zugeordnet. Dieser Schritt umfasst potentiell eine Vielzahl verschiedener Einzelschritte, da Bedeutung schwer fassbar ist.
+Dialog- und Diskursanalyse
+Die Beziehungen zwischen aufeinander folgenden Sätzen werden erkannt. Im Dialog könnten das z. B. Frage und Antwort sein, im Diskurs eine Aussage und ihre Begründung oder ihre Einschränkung.
+Es ist allerdings nicht so, dass sämtliche Verfahren der Computerlinguistik diese komplette Kette durchlaufen. Die zunehmende Verwendung von maschinellen Lernverfahren hat zu der Einsicht geführt, dass auf jeder der Analyseebenen statistische Regelmäßigkeiten existieren, die zur Modellierung sprachlicher Phänomene genutzt werden können. Beispielsweise verwenden viele aktuelle Modelle der maschinellen Übersetzung Syntax nur in eingeschränktem Umfang und Semantik so gut wie gar nicht; stattdessen beschränken sie sich darauf, Korrespondenzmuster auf Wortebene auszunutzen.
+Am anderen Ende der Skala stehen Verfahren, die nach dem Prinzip Semantics first, syntax second arbeiten. So baut die auf dem MultiNet-Paradigma beruhende, kognitiv orientierte Sprachverarbeitung auf einem semantikbasierten Computerlexikon auf, das auf einem im Wesentlichen sprachunabhängigen semantischen Kern mit sprachspezifischen morphosyntaktischen Ergänzungen beruht. Dieses Lexikon wird beim Parsing von einer Wortklassen-gesteuerten Analyse zur unmittelbaren Erzeugung von semantischen Strukturen eingesetzt.
+
+
+== Beispiele für Probleme der Sprachverarbeitung ==
+Auflösung syntaktischer Mehrdeutigkeiten. In einigen Fällen lässt sich ein Satz auf mehrere Arten analysieren und deuten. Die richtige auszuwählen, erfordert manchmal semantische Information über den Sprechakt und die Intention der Sprecher, mindestens jedoch statistisches Vorwissen über das gemeinsame Auftreten von Wörtern. Beispiel: „Peter sah Maria mit dem Fernglas“ – hier ist nicht zwangsläufig klar, ob Peter Maria gesehen hat, die ein Fernglas in der Hand hielt, oder ob Peter Maria mit Hilfe eines Fernglases sehen konnte.
+Bestimmen der Semantik. Die gleiche Wortform kann je nach Kontext eine andere Bedeutung aufweisen (vergleiche Homonym, Polysem). Man muss die für den Kontext zutreffende Bedeutung auswählen. Auf der anderen Seite braucht man Formalismen zur Repräsentation von Wortbedeutungen.
+Erkennen der Absicht einer sprachlichen Äußerung (siehe Pragmatik). Manche Sätze sind nicht wörtlich gemeint. Beispielsweise erwartet man auf die Frage „Können Sie mir sagen, wie spät es ist?“ nicht eine Antwort wie „Ja“ oder „Nein“, sondern bittet damit um Auskunft über die Uhrzeit.
+
+
+== Anwendungen in der Praxis ==
+Praktische Computerlinguistik ist ein Begriff, der sich im Lehrangebot einiger Universitäten etabliert hat. Solche Ausbildungsgänge sind nahe an konkreten Berufsbildern um die informatisch-technische Wartung und Entwicklung von sprachverarbeitenden Maschinen und ihrer Programme. Dazu gehören zum Beispiel:
+
+Die Unterstützung des Computerbenutzers bei der Textverarbeitung, beispielsweise:
+die automatische Korrektur von Tipp- und Rechtschreibfehlern,
+die Prüfung auf grammatische Richtigkeit oder
+die Umwandlung in Bedeutungszeichen in Japanisch oder Chinesisch.
+Das Auffinden von Informationen in großen sprachlichen Datenmengen (Text Mining, Informationsextraktion):
+von der automatischen Suche nach relevanten Textstellen (Information Retrieval und Suchmaschinen)
+bis hin zur direkten Beantwortung von Fragen (Question Answering (QA)).
+Die Unterstützung beim Übersetzen von Texten in eine andere Sprache (Computer-aided Translation (CAT)) oder auch die vollständige automatische Übersetzung.
+Die Verarbeitung von gesprochener Sprache, zum Beispiel bei:
+digitalen Diktiergeräten (Spracherkennung) oder
+Lesegeräten für Blinde (Sprachsynthese).
+Die Generierung von natürlichsprachlichen Texten wie Wegbeschreibungen oder Wettervorhersagen.
+Die Aufbereitung von sprachlich vorliegenden Daten, beispielsweise die automatische:
+Verschlagwortung von Literatur,
+Anfertigung von Registern und Inhaltsverzeichnissen,
+Herstellung von Zusammenfassungen und Abstracts.
+Die Unterstützung von Autoren beim Verfassen von Texten, zum Beispiel das Finden:
+des treffenden Ausdrucks oder
+der richtigen Terminologie,etwa bei der Verwendung eines kontrollierten Vokabulars in der technischen Dokumentation.
+Die sprachliche Interaktion mit einem Benutzer im Rahmen eines Dialogsystems, z. B.:
+bei telefonischen Auskunftsdiensten, aber auch
+zur Sprachsteuerung technischer Geräte oder Computer.
+Die automatisierte Messung von persönlichen Stärken anhand natürlicher Gespräche wie offenen Interviews, Bewerbungsgesprächen, Talkshows, Podiumsdiskussionen oder Gruppendiskussionen.
+Visualisierung von Argumentationsdiskursen (Argumentation Mining) zur Analyse der Inhalte von Texten und Sozialen Medien und zur Entwicklung von Lerntools.
+
+
+=== Studiengänge ===
+Computerlinguistik wird an mehreren Hochschulen im deutschsprachigen Raum als eigenständiger Studiengang angeboten. In der deutschen Hochschulpolitik ist die Computerlinguistik als Kleines Fach eingestuft. Es sind Bachelor- wie auch Master-Studienabschlüsse möglich. Zu den bekanntesten Angeboten zählen die Studiengänge der:
+
+Universität Bielefeld,
+Ruprecht-Karls-Universität Heidelberg,
+Ludwig-Maximilians-Universität München,
+Universität Potsdam,
+Universität Stuttgart,
+Eberhard-Karls-Universität Tübingen,
+Heinrich-Heine Universität Düsseldorf,
+Universität des Saarlandes und
+Universität Trier.
+Die Universität Konstanz bietet ein Weiterführendes Studium Speech and Language Processing – Master of Arts an, das einen ersten Hochschulabschluss voraussetzt.
+
+
+=== Tagungen ===
+Konferenz der „Association of Computational Linguistics (ACL)“: findet jährlich statt;
+„COLING“: internationale Konferenz, findet seit 1965 in zweijährigem Abstand statt;
+„Recent Advances in Computational Linguistics (RANLP)“: ging aus einer Sommerschule hervor, findet seit 2001 in zweijährigem Abstand statt;
+„International Joint Conference on Natural Language Processing (IJCLP)“: findet seit 2004 in unregelmäßigen Abständen im asiatischen Raum statt;
+„Studentische Tagung Sprachwissenschaft (StuTS)“: drei- bis viertägige Tagung von Studenten für Studenten, findet jährlich statt;
+„Tagung der Computerlinguistik-Studierenden (TaCoS)“: deutschsprachiger Universitäten, findet seit 1992 jährlich an jeweils einer anderen Universität statt;
+Jahrestagung der „Gesellschaft für linguistische Datenverarbeitung (GLDV)“ bzw. (seit 2008) „Gesellschaft für Sprachtechnologie und Computerlinguistik (GSCL)“: findet alle zwei Jahre statt;
+„KONVENS – Konferenz zur Verarbeitung natürlicher Sprache“: findet jährlich statt, abwechselnd organisiert von den Gesellschaften ÖGAI, DGfS-CL und GSCL.
+
+
+=== Organisationen ===
+Asian Federation of Natural Language Processing Associations (AFNLP)
+Association for Computational Linguistics (ACL)
+Deutsche Gesellschaft für Sprachwissenschaft (DGfS) / Sektion Computerlinguistik
+Gesellschaft für Sprachtechnologie und Computerlinguistik (GSCL), bis 2008 „Gesellschaft für linguistische Datenverarbeitung (GLDV)“
+Österreichische Gesellschaft für Artificial Intelligence (ÖGAI) / Bereich Sprachverarbeitung
+
+
+== Siehe auch ==
+Algebraische Linguistik
+Korpuslinguistik
+Lexikalische Dichte
+Mathematische Linguistik
+Quantitative Linguistik
+Quantitative Literaturwissenschaft
+Sprachen im Internet
+Sprachstatistik
+
+
+== Literatur ==
+James Allen: Natural Language Understanding. The Benjamin / Cummings Publishing Company, Redwood City, CA 1995, ISBN 0-8053-0334-0.
+Kai-Uwe Carstensen, Christian Ebert, Cornelia Ebert, Susanne Jekat, Ralf Klabunde, Hagen Langer (Hrsg.): Computerlinguistik und Sprachtechnologie. 3. Auflage. Spektrum Akademischer Verlag, Heidelberg 2010, ISBN 978-3-8274-2023-7.
+Rainer Dietrich: Computerlinguistik. 1973.
+Roland Hausser: Foundations of Computational Linguistics: Human-Computer Communication in Natural Language. 3. Auflage. Springer, 2014, ISBN 978-3-642-41430-5.
+Nitin Indurkhya, Fred J. Damerau: Handbook of Natural Language Processing. 2. Auflage. Chapman and Hall/CRC, 2010, ISBN 978-1-4200-8592-1.
+Daniel Jurafsky, James H. Martin: Speech and Language Processing - An Introduction to Natural Language Processing, Computational Linguistics and Speech Recognition. 2. Auflage. Prentice Hall, Upper Saddle River, New Jersey 2008, ISBN 978-0-13-187321-6.
+Henning Lobin: Computerlinguistik und Texttechnologie. Fink, Paderborn / München 2010, ISBN 978-3-8252-3282-5.
+Christopher D. Manning, Hinrich Schütze: Foundations of Statistical Natural Language Processing. MIT Press, Cambridge/MA 1999, ISBN 0-262-13360-1.
+Ruslan Mitkov (Hrsg.): The Oxford Handbook of Computational Linguistics. Oxford University Press, 2003, ISBN 0-19-823882-7.
+
+
+== Weblinks ==
+
+Lehrmaterialien der Sektion Computerlinguistik der DGfS
+Wiki der Association for Computational Linguistics
+Uni Stuttgart: Einführung zum Thema Computerlinguistik
+Studienbibliographie Computerlinguistik und Sprachtechnologie
+Deutschsprachiges Portal zur Computerlinguistik
+Lenhart Schubert: Eintrag in Edward N. Zalta (Hrsg.): Stanford Encyclopedia of Philosophy.Vorlage:SEP/Wartung/Parameter 1 und Parameter 3 und nicht Parameter 2 (englisch)
+
+
+== Einzelnachweise ==

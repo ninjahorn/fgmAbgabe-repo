@@ -103,5 +103,89 @@ Rechenaufgaben wie Addition oder Subtraktion machen bei solchen semantischen und
 
 ## Aufgabe 3
 
-Hier steht was zu 3.
+Eventuell muss man bei einem Fehler einmalig ```nltk.download('punkt_tab')``` ausführen.
+Zu Beginn habe ich mit einem deutschen Text gearbeitet, allerdings gab es Probleme bei der Verwendung von GloVe-Embeddings, da diese für deutsche Texte nicht optimal unterstützt werden.
 
+Der Implementierungsasnsatz folgt diesen Hauptschritten:
+1. Text laden und in Sätze aufteilen (nltk wurde für die Satzzerlegung verwendet)
+2. Die Satzrepräsentationen erstellen (TF-IDF, GloVe und BERT)
+3. Die Ähnlichkeitsgraphen erstellen für jede Repräsentationsart
+4. TextRank anwenden und mit NetworkX die wichtigen Sätze zu identifizieren
+5. Graphen visualisieren (im ```plots``` Ordner)
+
+Verwendete Funktionen:
+
+```load_and_split_text()```: Lädt den Text und teilt ihn in Sätze auf, wobei zu kurze Sätze (weniger als 4 Wörter) gefiltert werden.
+
+```create_tfidf_representation()```: Erstellt TF-IDF-Vektoren für jeden Satz, wobei englische Stoppwörter entfernt werden.
+
+```create_glove_representation()```: Nutzt vortrainierte GloVe-Embeddings aus Aufgabe 2, um Sätze als Durchschnittsvektor der enthaltenen Wörter darzustellen.
+
+```create_bert_representation()```: Verwendet ein vortrainiertes BERT-Modell ('all-MiniLM-L6-v2'), um kontextualisierte Embeddings für ganze Sätze zu erzeugen.
+
+Die drei Funktionen ```create_similarity_graph_*()``` berechnen die Kosinus-Ähnlichkeit zwischen Satzpaaren und erstellen einen Graphen.
+
+```apply_text_rank()```: Wendet den PageRank-Algorithmus auf den Ähnlichkeitsgraphen an, um die Wichtigkeit jedes Satzes zu bewerten.
+
+```extract_top_sentences()```: Wählt die Top-5-Sätze basierend auf den TextRank-Scores aus.
+
+```visualize_graph()```: Erstellt eine visuelle Darstellung des Ähnlichkeitsgraphen mit hervorgehobenen Top-Sätzen.
+
+---
+
+#### Ergebnisse beim Ausführen:
+
+TF-IDF Summary:
+
+1 .  Natural Language Processing (NLP) consists of computational techniques and algorithms seeking to analyze, understand, and generate human language.
+2 .  NLP is considered a central component of artificial intelligence and one of the most challenging areas of computer science, often described as an "AI-complete" problem, meaning that solving it would require systems with human-level intelligence across multiple domains.
+3 .  Discourse analysis examines connections between sentences and larger text structures.
+4 .  Syntactic analysis examines the grammatical structure of sentences, including parsing and part-of-speech tagging.
+5 .  It borrows elements from various disciplines, including linguistics, computer science, artificial intelligence, cognitive psychology, information theory, and machine learning.
+
+GloVe Summary:
+
+1 .  The field's ethical considerations have gained prominence as NLP systems play increasingly important roles in society, with researchers addressing questions of privacy, surveillance, misinformation, and appropriate use of language technologies.
+2 .  NLP researchers aim to employ statistical and linguistic approaches to bridge the gap between human communication and computer understanding, enabling machines to interact with text and speech in meaningful ways.
+3 .  The term Natural Language Processing describes any computational approaches designed to analyze and represent naturally occurring human language, whether written or spoken, in a form that computers can process and manipulate in meaningful ways.
+4 .  Deep learning approaches have become dominant in recent years, though traditional rule-based and statistical methods remain important for specific applications.
+5 .  Transfer learning has enabled these models to apply knowledge gained from general language understanding to specific downstream tasks with minimal additional training.
+
+BERT Summary:
+
+1 .  NLP researchers aim to employ statistical and linguistic approaches to bridge the gap between human communication and computer understanding, enabling machines to interact with text and speech in meaningful ways.
+2 .  NLP is considered a central component of artificial intelligence and one of the most challenging areas of computer science, often described as an "AI-complete" problem, meaning that solving it would require systems with human-level intelligence across multiple domains.
+3 .  Natural Language Processing (NLP) consists of computational techniques and algorithms seeking to analyze, understand, and generate human language.
+4 .  The field of NLP can be divided into several core tasks and areas of focus.
+5 .  In many commercial applications, NLP powers everyday technologies that billions of people interact with regularly.
+
+---
+
+Die drei Methoden liefern sehr unterschiedliche Zusammenfassungen. Die Unterschiede zwischen den Methoden sind folgende:
+
+- TF-IDF fokussiert stark auf die Definition und technischen Aspekte von NLP, mit besonderem Augenmerk auf die Struktur und Analyse von Sprache
+- GloVe betont ethische Aspekte und die Entwicklung des Feldes, mit Fokus auf methodologische Ansätze und die Verbindung zur menschlichen Kommunikation
+- BERT bietet eine ausgewogenere Zusammenfassung, die sowohl Definitionen als auch praktische Anwendungen und die Bedeutung des Feldes abdeckt
+
+Beim Ausführen wird außerdem eine Overlap-Analyse ausgegeben, welche zeigt, wie viele gemeinsame Sätze es gibt, was die unterschiedlichen Fokuspunkte der Methoden unterstreicht. Die Visualisierung der Graphen zeigt auch strukturelle Unterschiede: TF-IDF-Graphen neigen zu stärker geclusterten Verbindungen basierend auf gemeinsamen Schlüsselwörtern, während BERT-Graphen tendenziell gleichmäßiger verbunden sind und semantische Beziehungen besser abbilden.
+
+### Teilaufgabe c)
+- TD-IDF-basierte Graphen
+    - Fokussieren auf lexikalische Ähnlichkeit und Termüberlappung zwischen Sätzen
+    - Bilden dichtere Verbindungen zwischen Sätzen mit ähnlichen Fachbegriffen
+    - Neigen zur Clusterbildung um bestimmte Schlüsselbegriffe herum
+    - Die Kantengewichte variieren stark und bevorzugen terminologische Übereinstimmung
+- GloVe-basierte Graphen
+    - Erfassen semantische Ähnlichkeiten auf Wortebene, auch ohne exakte Wortübereinstimmung
+    - Verbinden thematisch verwandte Sätze auch bei unterschiedlichem Vokabular
+    - Gleichmäßigere Verteilung der Kantengewichte
+    - Stärkere Verbindung zwischen Sätzen mit ähnlichen Konzepten, weniger abhängig von konkreten Begriffen
+- BERT-basierte Graphen
+    - Berücksichtigen kontextuelle Beziehungen und tiefere semantische Zusammenhänge
+    - Zeigen die ausgeglichenste Vernetzung zwischen verschiedenen Textteilen
+    - Erfassen auch abstraktere thematische Verbindungen
+    - Graphstruktur spiegelt sowohl semantische als auch syntaktische Ähnlichkeiten wieder
+
+Für eine möglichst aussagekräftige und konsistente Repräsentation der wesentlichen Inhalte erweist sich BERT als die leistungsfähigste Einzelmethode. Die kontextsensitive Natur der BERT-Embeddings ermöglicht eine Zusammenfassung, die sowohl technische Definitionen als auch praktische Anwendungen und konzeptuelle Zusammenhänge erfasst. Die Vielseitigkeit dieser Methode macht sie zur besten Wahl für eine allgemeine Textzusammenfassung.
+
+Die Wahl der Embedding-Methode sollte letztlich vom spezifischen Ziel der Zusammenfassung und den Bedürfnissen der Zielgruppe abhängig gemacht werden. 
